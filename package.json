@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/nicocalu/backend/issues"
   },
-  "homepage": "https://github.com/nicocalu/backend#readme"
+  "homepage": "https://github.com/nicocalu/backend#readme",
+  "publishConfig": {
+	"@nicocalu:registry":"https://npm.pkg.github.com"
+  }
 }
