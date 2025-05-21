@@ -1,0 +1,19 @@
+{
+  "name": "@nicocalu/backend",
+  "version": "1.0.0",
+  "description": "- **Numéro du binôme** : B3224\r - **Élève 1** : Lou Reina--Kuntziger - lou.reina-kuntziger@insa-lyon.fr\r - **Élève 2** : Andy Gonzales - andy.gonzales@insa-lyon.fr",
+  "main": "index.js",
+  "scripts": {
+    "test": "exit 0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nicocalu/backend.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nicocalu/backend/issues"
+  },
+  "homepage": "https://github.com/nicocalu/backend#readme"
+}
