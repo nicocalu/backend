@@ -73,4 +73,19 @@
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
+    <distributionManagement>
+    <repository>
+      <id>github</id> 
+      <name>GitHub nicocalu Apache Maven Packages</name>
+      <url>https://maven.pkg.github.com/nicocalu/backend</url> <!-- Or more dynamically: https://maven.pkg.github.com/${project.groupId}/${project.artifactId} -->
+    </repository>
+    <!-- SNAPSHOTS -->
+    <!--
+    <snapshotRepository>
+      <id>github</id>
+      <name>GitHub nicocalu Apache Maven Packages Snapshots</name>
+      <url>https://maven.pkg.github.com/nicocalu/backend</url>
+    </snapshotRepository>
+    -->
+  </distributionManagement>
 </project>
