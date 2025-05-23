@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read
-      packages: write
+      packages: write # This permission is correctly set
 
     steps:
     - uses: actions/checkout@v4
@@ -18,21 +18,19 @@ jobs:
       with:
         java-version: '8'
         distribution: 'temurin'
-        server-id: github # This should match the <id> in your pom.xml's distributionManagement
-        # settings-path is not strictly necessary here if setup-java's default works
-        # but if you keep it, ensure the deploy step knows where it is or let Maven find it by default.
-        # For simplicity, let's try without explicitly setting settings-path first,
-        # allowing setup-java to use its default location (~/.m2/settings.xml within the runner).
+        server-id: github # Matches the <id> in your pom.xml and settings.xml
+
+    # Your debug step to display settings.xml can remain if you find it useful
     - name: Display settings.xml
       run: |
         echo "Looking for settings.xml at ~/.m2/settings.xml"
         cat ~/.m2/settings.xml || echo "settings.xml not found at ~/.m2/settings.xml"
-      continue-on-error: true # So the workflow doesn't stop if cat fails
+      continue-on-error: true
+
     - name: Build with Maven
       run: mvn -B package --file pom.xml
 
     - name: Publish to GitHub Packages Apache Maven
-      # Let Maven use the settings.xml configured by setup-java in the default location
-      # The GITHUB_TOKEN is automatically used by setup-java when server-id is 'github'
       run: mvn -B deploy --file pom.xml
-      # No explicit -s or env GITHUB_TOKEN needed here for this common setup
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Crucial: Make GITHUB_TOKEN available to Maven
