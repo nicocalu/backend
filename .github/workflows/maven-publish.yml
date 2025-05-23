@@ -23,7 +23,11 @@ jobs:
         # but if you keep it, ensure the deploy step knows where it is or let Maven find it by default.
         # For simplicity, let's try without explicitly setting settings-path first,
         # allowing setup-java to use its default location (~/.m2/settings.xml within the runner).
-
+    - name: Display settings.xml
+      run: |
+        echo "Looking for settings.xml at ~/.m2/settings.xml"
+        cat ~/.m2/settings.xml || echo "settings.xml not found at ~/.m2/settings.xml"
+      continue-on-error: true # So the workflow doesn't stop if cat fails
     - name: Build with Maven
       run: mvn -B package --file pom.xml
 
