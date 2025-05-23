@@ -74,18 +74,15 @@
         <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
     <distributionManagement>
-    <repository>
-      <id>github</id> 
-      <name>GitHub nicocalu Apache Maven Packages</name>
-      <url>https://maven.pkg.github.com/nicocalu/backend</url> <!-- Or more dynamically: https://maven.pkg.github.com/${project.groupId}/${project.artifactId} -->
-    </repository>
-    <!-- SNAPSHOTS -->
-    <!--
-    <snapshotRepository>
-      <id>github</id>
-      <name>GitHub nicocalu Apache Maven Packages Snapshots</name>
-      <url>https://maven.pkg.github.com/nicocalu/backend</url>
-    </snapshotRepository>
-    -->
-  </distributionManagement>
+        <repository>
+            <id>github</id> <!-- This ID is used by Maven to look up server credentials from settings.xml -->
+            <name>GitHub nicocalu Apache Maven Packages</name>
+            <url>https://maven.pkg.github.com/nicocalu/backend</url>
+        </repository>
+        <snapshotRepository>
+            <id>github</id> <!-- Same ID can often be used if credentials are the same -->
+            <name>GitHub nicocalu Apache Maven Packages Snapshots</name>
+            <url>https://maven.pkg.github.com/nicocalu/backend</url>
+        </snapshotRepository>
+    </distributionManagement>
 </project>
